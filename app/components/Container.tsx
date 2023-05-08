@@ -2,9 +2,11 @@ interface ContainerProps {
   children: React.ReactNode;
 }
 
-const Container = () => {
+const Container: React.FC<ContainerProps> = ({
+  children
+}) => {
   return (
-    <div></div>
+    <div>{children}</div>
   );
 }
 
