@@ -1,3 +1,5 @@
+'use client';
+
 const MenuItem = () => {
   return ( 
     <div></div>
