@@ -56,6 +56,27 @@ const UserMenu = () => {
           </div>
         </div>
       </div>
+      {isOpen && (
+        <div
+          className="
+            absolute
+            rounded-xl
+            shadow-md
+            2-[40vw]
+            md:w-3/4
+            bg-white
+            overflow-hidden
+            right-0
+            top-12
+            text-sm
+          "
+        >
+          <div className='flex flex-col cursor-pointer'>
+            <>
+            </>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
