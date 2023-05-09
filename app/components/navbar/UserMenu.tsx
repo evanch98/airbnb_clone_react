@@ -3,6 +3,7 @@
 import { AiOutlineMenu } from 'react-icons/ai';
 import Avatar from '../Avatar';
 import { useCallback, useState } from 'react';
+import MenuItem from './MenuItem';
 
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,6 +74,7 @@ const UserMenu = () => {
         >
           <div className='flex flex-col cursor-pointer'>
             <>
+              <MenuItem />
             </>
           </div>
         </div>
