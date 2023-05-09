@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface ModalProps {
   isOpen?: boolean;
@@ -32,6 +32,17 @@ const Modal: React.FC<ModalProps> = ({
   useEffect(() => {
     setShowModal(isOpen);
   }, [isOpen]);
+
+  const handleClose = useCallback(() => {
+    if (disabled) {
+      return;
+    }
+    setShowModal(false);
+    setTimeout(() => {
+      onClose();
+    }, 300);
+  }, [disabled, onClose]);
+
   return (
     <div></div>
   );
