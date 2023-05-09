@@ -1,7 +1,7 @@
 import Container from "../Container";
 import Logo from "./Logo";
 import UserMenu from "./UserMenu";
-import Search from "./search";
+import Search from "./Search";
 
 const Navbar = () => {
   return (
