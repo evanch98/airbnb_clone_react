@@ -2,8 +2,11 @@
 
 import { AiOutlineMenu } from 'react-icons/ai';
 import Avatar from '../Avatar';
+import { useState } from 'react';
 
 const UserMenu = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
