@@ -149,6 +149,10 @@ const Modal: React.FC<ModalProps> = ({
                   {title}
                 </div>
               </div>
+              {/* BODY */}
+              <div className="relative p-6 flex-auto">
+                {body}
+              </div>
             </div>
           </div>
         </div>
