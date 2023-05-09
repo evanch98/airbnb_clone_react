@@ -2,10 +2,15 @@
 
 import { AiOutlineMenu } from 'react-icons/ai';
 import Avatar from '../Avatar';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // reverse the current value of isOpen
+  const toggleOpen = useCallback(() => {
+    setIsOpen((value) => !value);
+  }, []);
 
   return (
     <div className="relative">
