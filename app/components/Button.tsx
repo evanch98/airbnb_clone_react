@@ -9,7 +9,14 @@ interface ButtonProps {
   icon?: IconType;
 }
 
-const Button = () => {
+const Button: React.FC<ButtonProps> = ({
+  label,
+  onClick,
+  disabled,
+  outline,
+  small,
+  icon
+}) => {
   return ( 
     <button></button>
    );
