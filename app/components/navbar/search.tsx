@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 const Search = () => {
   return (
@@ -14,7 +14,24 @@ const Search = () => {
         cursor-pointer
       "
     >
-
+      <div
+        className="
+          flex
+          flex-row
+          items-center
+          justify-between
+        "
+      >
+        <div
+          className="
+            text-sm
+            font-semibold
+            px-6
+          "
+        >
+          Anywhere
+        </div>
+      </div>
     </div>
   );
 }
