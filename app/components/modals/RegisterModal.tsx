@@ -38,6 +38,13 @@ const RegisterModal = () => {
         // close the registerModal if the user has registered successfully
         registerModal.onClose();
       })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        // after everything is done, set the isLoading to false
+        setIsLoading(false);
+      });
   }
 
   return (
