@@ -12,9 +12,33 @@ import {
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const RegisterModal = () => {
-  return ( 
+  const registerModal = useRegisterModal();
+  const [isLoading, setIsLoading] = useState(false);
+
+  // form
+  const {
+    register,
+    handleSubmit,
+    formState: {
+      errors
+    }
+  } = useForm<FieldValues>({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: ""
+    }
+  });
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    setIsLoading(true);
+
+    axios.post("/api/register", data);
+  }
+
+  return (
     <div></div>
-   );
+  );
 }
- 
+
 export default RegisterModal;
