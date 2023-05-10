@@ -29,12 +29,13 @@ const Modal: React.FC<ModalProps> = ({
   secondaryAction,
   secondaryActionLabel
 }) => {
-  const [showModal, setShowModal] = useState(isOpen);
+  const [showModal, setShowModal] = useState(isOpen);  // to determine whether to show the modal or not
 
   useEffect(() => {
     setShowModal(isOpen);
   }, [isOpen]);
 
+  // handle the close action
   const handleClose = useCallback(() => {
     if (disabled) {
       return;
