@@ -1,3 +1,5 @@
+'use client';
+
 const RegisterModal = () => {
   return ( 
     <div></div>
