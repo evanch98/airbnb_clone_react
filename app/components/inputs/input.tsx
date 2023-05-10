@@ -1,3 +1,5 @@
+'use client';
+
 const Input = () => {
   return ( 
     <div></div>
