@@ -14,6 +14,7 @@ import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/input";
 import { toast } from "react-hot-toast";
+import Button from "../Button";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -86,7 +87,15 @@ const RegisterModal = () => {
   );
 
   const footerContent = (
-    <div className="flex flex-col gap-4 mt-3"></div>
+    <div className="flex flex-col gap-4 mt-3">
+      <hr />
+      <Button 
+        outline
+        label="Continue with Google"
+        icon={FcGoogle}
+        onClick={() => {}}
+      />
+    </div>
   );
 
   return (
