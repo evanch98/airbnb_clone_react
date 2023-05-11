@@ -87,6 +87,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         >
           <div className='flex flex-col cursor-pointer'>
             {currentUser ? (
+              // if the user has logged in
               <>
                 <MenuItem
                   onClick={() => {}}
@@ -115,6 +116,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 />
               </>
             ) : (
+              // if the user has not logged in
               <>
                 <MenuItem 
                   onClick={loginModal.onOpen}
