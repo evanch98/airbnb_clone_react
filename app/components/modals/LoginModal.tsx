@@ -15,9 +15,11 @@ import Heading from "../Heading";
 import Input from "../inputs/input";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 const LoginModal = () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
   // form
@@ -139,10 +141,10 @@ const LoginModal = () => {
   return (
     <Modal
       disabled={isLoading}
-      isOpen={registerModal.isOpen}
+      isOpen={loginModal.isOpen}
       title="Register"
       actionLabel="Continue"
-      onClose={registerModal.onClose}
+      onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
       footer={footerContent}
