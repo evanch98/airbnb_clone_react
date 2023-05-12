@@ -19,6 +19,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   const router = useRouter();
   const params = useSearchParams();
 
+  // this function will generate an appropriate url depending the category user selected
   const handleClick = useCallback(() => {
     let currentQuery = {};  // empty query
 
