@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { TbBeach } from "react-icons/tb";
 import { GiWindmill } from "react-icons/gi";
@@ -12,26 +12,26 @@ export const categories = [
   {
     label: "Beach",
     icon: TbBeach,
-    description: "This property is close to the beach!"
+    description: "This property is close to the beach!",
   },
   {
     label: "Windmills",
     icon: GiWindmill,
-    description: "This property has windmills!"
+    description: "This property has windmills!",
   },
   {
     label: "Modern",
     icon: MdOutlineVilla,
-    description: "This property is modern!"
+    description: "This property is modern!",
   },
-]
+];
 
 const Categories = () => {
   const params = useSearchParams();
-  const category = params?.get('category');  // extract the value of the category
-  const pathname = usePathname();  // pathname of the current page
+  const category = params?.get("category"); // extract the value of the category
+  const pathname = usePathname(); // pathname of the current page
 
-  const isMainPage = pathname === '/';  // to check if the current page is the main page
+  const isMainPage = pathname === "/"; // to check if the current page is the main page
 
   // if the current page is not the main page, return null
   if (!isMainPage) {
@@ -61,6 +61,6 @@ const Categories = () => {
       </div>
     </Container>
   );
-}
+};
 
 export default Categories;
