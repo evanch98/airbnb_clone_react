@@ -28,7 +28,7 @@ export const categories = [
 
 const Categories = () => {
   const params = useSearchParams();
-  const category = params?.get('category');
+  const category = params?.get('category');  // extract the value of the category
   const pathname = usePathname();  // pathname of the current page
 
   const isMainPage = pathname === '/';  // to check if the current page is the main page
