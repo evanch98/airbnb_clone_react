@@ -47,9 +47,9 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
 
     router.push(url);
   }, [params, label, router]);
-  return ( 
+  return (
     <div
-    onClick={handleClick}
+      onClick={handleClick}
       className={`
         flex
         flex-col
@@ -70,7 +70,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         {label}
       </div>
     </div>
-   );
+  );
 }
- 
+
 export default CategoryBox;
