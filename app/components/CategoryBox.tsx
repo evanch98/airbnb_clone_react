@@ -48,6 +48,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   }, [params, label, router]);
   return ( 
     <div
+    onClick={handleClick}
       className={`
         flex
         flex-col
