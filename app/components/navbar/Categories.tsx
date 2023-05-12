@@ -5,6 +5,7 @@ import { GiWindmill } from "react-icons/gi";
 import { MdOutlineVilla } from "react-icons/md";
 
 import Container from "../Container";
+import CategoryBox from "../CategoryBox";
 
 export const categories = [
   {
@@ -36,7 +37,16 @@ const Categories = () => {
           justify-between
           overflow-x-auto
         "
-      ></div>
+      >
+        {categories.map((item) => (
+          <CategoryBox
+            key={item.label}
+            label={item.label}
+            description={item.description}
+            icon={item.icon}
+          />
+        ))}
+      </div>
     </Container>
    );
 }
