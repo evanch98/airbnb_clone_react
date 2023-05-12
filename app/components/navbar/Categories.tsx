@@ -38,7 +38,7 @@ const Categories = () => {
     return null;
   }
 
-  return ( 
+  return (
     <Container>
       <div
         className="
@@ -60,7 +60,7 @@ const Categories = () => {
         ))}
       </div>
     </Container>
-   );
+  );
 }
- 
+
 export default Categories;
