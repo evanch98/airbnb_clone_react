@@ -25,11 +25,21 @@ const UserMenu: React.FC<UserMenuProps> = ({
     setIsOpen((value) => !value);
   }, []);
 
+  const onRent = useCallback(() => {
+    // if the current user is null, ask the user to log in
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+
+    // open Rent Modal
+
+  }, [currentUser, loginModal]);
+
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div
-          onClick={() => {}}
+          onClick={onRent}
           className="
             hidden
             md:block
