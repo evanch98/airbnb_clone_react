@@ -43,6 +43,18 @@ const RentModal = () => {
     return "Next";
   }, [step]);
 
+  // return the secondaryActionLabel string appropriately depending on the current step of the user
+  const secondaryActionLabel = useMemo(() => {
+    // if the current step is the category step, it means it is the first step
+    // therefore, the secondaryActionLabel should be undefined
+    if (step === STEPS.CATEGORY) {
+      return undefined;
+    }
+
+    // otherwise, the secondaryActionLabel should be as follows
+    return "Back";
+  }, [step]);
+
   return ( 
     <Modal 
       isOpen={rentModal.isOpen}
