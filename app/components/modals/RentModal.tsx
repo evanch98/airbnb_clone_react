@@ -2,7 +2,9 @@
 
 import useRentModal from "@/app/hooks/useRentModal";
 import Modal from "./Modal";
+import { useState } from "react";
 
+// steps of renting a home
 enum STEPS {
   CATEGORY = 0,
   LOCATION = 1,
@@ -13,7 +15,21 @@ enum STEPS {
 }
 
 const RentModal = () => {
+  // hook
   const rentModal = useRentModal();
+
+  // by default, the renting process start from choosing the category
+  const [step, setStep] = useState(STEPS.CATEGORY);
+
+  // one step back
+  const onBack = () => {
+    setStep((value) => value - 1);
+  }
+
+  // one step backward
+  const onNext = () => {
+    setStep((value) => value - 1);
+  }
 
   return ( 
     <Modal 
