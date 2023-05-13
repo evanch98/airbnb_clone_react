@@ -28,7 +28,7 @@ const RentModal = () => {
 
   // one step backward
   const onNext = () => {
-    setStep((value) => value - 1);
+    setStep((value) => value + 1);
   }
 
   return ( 
