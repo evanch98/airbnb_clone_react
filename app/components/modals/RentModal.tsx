@@ -49,6 +49,9 @@ const RentModal = () => {
     }
   });
 
+  // this is extracted from the useForm to watch and subscribe the category
+  const category = watch("category");
+
   // one step back
   const onBack = () => {
     setStep((value) => value - 1);
