@@ -24,7 +24,7 @@ interface MapProps {
 }
 
 const Map: React.FC<MapProps> = ({
-	center,
+	center,  // for the latitude and longitude
 }) => {
 	return ( 
 		<div></div>
