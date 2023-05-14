@@ -10,7 +10,15 @@ export type CountrySelectValue = {
   value: string;
 }
 
-const CountrySelect = () => {
+interface CountrySelectProps {
+  value?: CountrySelectValue;
+  onChange: (value: CountrySelectValue) => void;
+}
+
+const CountrySelect: React.FC<CountrySelectProps> = ({
+  value,
+  onChange
+}) => {
   return ( 
     <div></div>
   );
