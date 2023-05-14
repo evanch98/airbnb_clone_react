@@ -19,7 +19,13 @@ L.Icon.Default.mergeOptions({
 	shadowUrl: markerShadow.src
 });
 
-const Map = () => {
+interface MapProps {
+	center: number[];
+}
+
+const Map: React.FC<MapProps> = ({
+	center,
+}) => {
 	return ( 
 		<div></div>
 	);
