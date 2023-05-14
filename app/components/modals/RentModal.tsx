@@ -14,12 +14,12 @@ import dynamic from "next/dynamic";
 
 // steps of renting a home
 enum STEPS {
-  CATEGORY = 0,
-  LOCATION = 1,
-  INFO = 2,
-  IMAGES = 3,
-  DESCRIPTION = 4,
-  PRICE = 5,
+	CATEGORY = 0,
+	LOCATION = 1,
+	INFO = 2,
+	IMAGES = 3,
+	DESCRIPTION = 4,
+	PRICE = 5,
 }
 
 const RentModal = () => {
@@ -57,9 +57,13 @@ const RentModal = () => {
 
 	// import Map this way to be able to work with the leaflet package
 	// import Map dynamically
-	const Map = useMemo(() => dynamic(() => import("../Map"), {
-		ssr: false
-	}), [location]);
+	const Map = useMemo(
+		() =>
+			dynamic(() => import("../Map"), {
+				ssr: false,
+			}),
+		[location]
+	);
 
 	// to set the value of the category
 	const setCustomValue = (id: string, value: any) => {
@@ -142,13 +146,11 @@ const RentModal = () => {
 					title="Where is your place located?"
 					subtitle="Help guests find you!"
 				/>
-				<CountrySelect 
+				<CountrySelect
 					value={location}
 					onChange={(value) => setCustomValue("location", value)}
 				/>
-				<Map 
-					center={location?.latlng}
-				/>
+				<Map center={location?.latlng} />
 			</div>
 		);
 	}
