@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/react-in-jsx-scope */
 "use client";
 
 import useCountries from "@/app/hooks/useCountry";
@@ -17,42 +20,42 @@ interface CountrySelectProps {
 }
 
 const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
-  // extract getAll from the useCountries hook
-  const { getAll } = useCountries();
-  return (
-    <div>
-      <Select
-        placeholder="Anywhere"
-        isClearable
-        options={getAll()}
-        value={value}
-        onChange={(value) => onChange(value as CountrySelectValue)}
-        formatOptionLabel={(option: any) => (
-          <div className="flex flex-row items-center gap-3">
-            <div>{option.flag}</div>
-            <div>
-              {option.label},
-              <span className="text-neutral-500 ml-1">{option.region}</span>
-            </div>
-          </div>
-        )}
-        classNames={{
-          control: () => "p-3 border-2",
-          input: () => "text-lg",
-          option: () => "text-lg",
-        }}
-        theme={(theme) => ({
-          ...theme,
-          borderRadius: 6,
-          colors: {
-            ...theme.colors,
-            primary: "black",
-            primary25: "#ffe4e6",
-          },
-        })}
-      />
-    </div>
-  );
+	// extract getAll from the useCountries hook
+	const { getAll } = useCountries();
+	return (
+		<div>
+			<Select
+				placeholder="Anywhere"
+				isClearable
+				options={getAll()}
+				value={value}
+				onChange={(value) => onChange(value as CountrySelectValue)}
+				formatOptionLabel={(option: any) => (
+					<div className="flex flex-row items-center gap-3">
+						<div>{option.flag}</div>
+						<div>
+							{option.label},
+							<span className="text-neutral-500 ml-1">{option.region}</span>
+						</div>
+					</div>
+				)}
+				classNames={{
+					control: () => "p-3 border-2",
+					input: () => "text-lg",
+					option: () => "text-lg",
+				}}
+				theme={(theme) => ({
+					...theme,
+					borderRadius: 6,
+					colors: {
+						...theme.colors,
+						primary: "black",
+						primary25: "#ffe4e6",
+					},
+				})}
+			/>
+		</div>
+	);
 };
 
 export default CountrySelect;
