@@ -134,6 +134,7 @@ const RentModal = () => {
           subtitle="Help guests find you!"
         />
         <CountrySelect 
+          value={location}
           onChange={(value) => setCustomValue("location", value)}
         />
       </div>
