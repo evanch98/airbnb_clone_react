@@ -48,8 +48,9 @@ const RentModal = () => {
     },
   });
 
-  // this is extracted from the useForm to watch and subscribe the category
+  // these are extracted from the useForm to watch and subscribe
   const category = watch("category");
+  const location = watch("location");
 
   // to set the value of the category
   const setCustomValue = (id: string, value: any) => {
