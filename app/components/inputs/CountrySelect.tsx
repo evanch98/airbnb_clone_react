@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/react-in-jsx-scope */
 "use client";
 
 import useCountries from "@/app/hooks/useCountry";
 import Select from "react-select";
+import React from "react";
 
 export type CountrySelectValue = {
   flag: string;
