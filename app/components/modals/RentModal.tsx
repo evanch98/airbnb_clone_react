@@ -52,6 +52,14 @@ const RentModal = () => {
   // this is extracted from the useForm to watch and subscribe the category
   const category = watch("category");
 
+  const setCustomValue = (id: string, value: any) => {
+    setValue(id, value, {
+      shouldValidate: true,
+      shouldDirty: true,
+      shouldTouch: true,
+    })
+  }
+
   // one step back
   const onBack = () => {
     setStep((value) => value - 1);
