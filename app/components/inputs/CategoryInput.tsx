@@ -10,7 +10,7 @@ interface CategoryInputProps {
 }
 
 const CategoryInput: React.FC<CategoryInputProps> = ({
-  icon,
+  icon: Icon,
   label,
   selected,
   onClick
