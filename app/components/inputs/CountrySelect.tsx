@@ -37,9 +37,9 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
           </div>
         )}
         classNames={{
-          control: () => 'p-3 border-2',
-          input: () => 'text-lg',
-          option: () => 'text-lg'
+          control: () => "p-3 border-2",
+          input: () => "text-lg",
+          option: () => "text-lg",
         }}
         theme={(theme) => ({
           ...theme,
@@ -47,8 +47,8 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
           colors: {
             ...theme.colors,
             primary: "black",
-            primary25: "#ffe4e6"
-          }
+            primary25: "#ffe4e6",
+          },
         })}
       />
     </div>
