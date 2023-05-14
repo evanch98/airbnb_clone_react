@@ -41,6 +41,15 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
           input: () => 'text-lg',
           option: () => 'text-lg'
         }}
+        theme={(theme) => ({
+          ...theme,
+          borderRadius: 6,
+          colors: {
+            ...theme.colors,
+            primary: "black",
+            primary25: "#ffe4e6"
+          }
+        })}
       />
     </div>
   );
