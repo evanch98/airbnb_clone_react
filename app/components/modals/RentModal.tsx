@@ -10,7 +10,7 @@ import { categories } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
 import { FieldValues, useForm } from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
-import Map from "../Map";
+import dynamic from "next/dynamic";
 
 // steps of renting a home
 enum STEPS {
@@ -54,6 +54,12 @@ const RentModal = () => {
 	// these are extracted from the useForm to watch and subscribe
 	const category = watch("category");
 	const location = watch("location");
+
+	// import Map this way to be able to work with the leaflet package
+	// import Map dynamically
+	const Map = useMemo(() => dynamic(() => import("../Map"), {
+		ssr: false
+	}), [location]);
 
 	// to set the value of the category
 	const setCustomValue = (id: string, value: any) => {
