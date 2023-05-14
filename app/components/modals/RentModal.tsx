@@ -77,7 +77,12 @@ const RentModal = () => {
       >
         {categories.map((item) => (
           <div key={item.label} className="col-span-1">
-            <CategoryInput />
+            <CategoryInput 
+              onClick={() => {}}
+              selected={false}
+              label={item.label}
+              icon={item.icon}
+            />
           </div>
         ))}
       </div>
