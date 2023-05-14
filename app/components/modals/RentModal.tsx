@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import useRentModal from "@/app/hooks/useRentModal";
 import Modal from "./Modal";
@@ -15,7 +15,7 @@ enum STEPS {
   INFO = 2,
   IMAGES = 3,
   DESCRIPTION = 4,
-  PRICE = 5
+  PRICE = 5,
 }
 
 const RentModal = () => {
@@ -31,10 +31,8 @@ const RentModal = () => {
     handleSubmit,
     setValue,
     watch,
-    formState: {
-      errors,
-    },
-    reset
+    formState: { errors },
+    reset,
   } = useForm<FieldValues>({
     defaultValues: {
       category: "",
@@ -45,8 +43,8 @@ const RentModal = () => {
       imageSrc: "",
       price: 1,
       title: "",
-      description: ""
-    }
+      description: "",
+    },
   });
 
   // this is extracted from the useForm to watch and subscribe the category
@@ -57,18 +55,18 @@ const RentModal = () => {
       shouldValidate: true,
       shouldDirty: true,
       shouldTouch: true,
-    })
-  }
+    });
+  };
 
   // one step back
   const onBack = () => {
     setStep((value) => value - 1);
-  }
+  };
 
   // one step backward
   const onNext = () => {
     setStep((value) => value + 1);
-  }
+  };
 
   // return the actionLabel string appropriately depending on the current step of the user
   const actionLabel = useMemo(() => {
@@ -97,7 +95,7 @@ const RentModal = () => {
   // Body content
   let bodyContent = (
     <div className="flex flex-col gap-8">
-      <Heading 
+      <Heading
         title="Which of these best describes your place?"
         subtitle="Pick a category"
       />
@@ -113,8 +111,8 @@ const RentModal = () => {
       >
         {categories.map((item) => (
           <div key={item.label} className="col-span-1">
-            <CategoryInput 
-              onClick={(category) => setCustomValue('category', category)}
+            <CategoryInput
+              onClick={(category) => setCustomValue("category", category)}
               selected={false}
               label={item.label}
               icon={item.icon}
@@ -125,8 +123,8 @@ const RentModal = () => {
     </div>
   );
 
-  return ( 
-    <Modal 
+  return (
+    <Modal
       isOpen={rentModal.isOpen}
       onClose={rentModal.onClose}
       onSubmit={rentModal.onClose}
@@ -137,6 +135,6 @@ const RentModal = () => {
       body={bodyContent}
     />
   );
-}
+};
 
 export default RentModal;
