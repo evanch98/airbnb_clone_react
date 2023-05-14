@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import { useMemo, useState } from "react";
 import Heading from "../Heading";
 import { categories } from "../navbar/Categories";
+import CategoryInput from "../inputs/CategoryInput";
 
 // steps of renting a home
 enum STEPS {
@@ -76,7 +77,7 @@ const RentModal = () => {
       >
         {categories.map((item) => (
           <div key={item.label} className="col-span-1">
-            {item.label}
+            <CategoryInput />
           </div>
         ))}
       </div>
