@@ -1,3 +1,5 @@
+'use client';
+
 const CategoryInput = () => {
   return ( 
     <div></div>
