@@ -50,6 +50,7 @@ const RentModal = () => {
   // this is extracted from the useForm to watch and subscribe the category
   const category = watch("category");
 
+  // to set the value of the category
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
       shouldValidate: true,
