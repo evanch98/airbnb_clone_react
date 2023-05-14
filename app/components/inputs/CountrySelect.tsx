@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
