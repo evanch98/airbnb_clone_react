@@ -1,5 +1,6 @@
 'use client';
 
+import useCountries from "@/app/hooks/useCountry";
 import Select from "react-select";
 
 export type CountrySelectValue = {
@@ -19,8 +20,16 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
   value,
   onChange
 }) => {
+  // extract getAll from the useCountries hook
+  const { getAll } = useCountries();
   return ( 
-    <div></div>
+    <div>
+      <Select 
+        placeholder="Anywhere"
+        isClearable
+        options={getAll()}
+      />
+    </div>
   );
 }
 
