@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useCallback } from "react";
@@ -6,7 +7,6 @@ import Image from "next/image";
 import { TbPhotoPlus } from "react-icons/tb";
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let cloudinary: any;
 }
 
@@ -19,6 +19,10 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
 	onChange,
 	value
 }) => {
+	const handleUpload = useCallback((result: any) => {
+		onChange(result.info.secure_url);
+	}, [onChange]);
+
 	return ( 
 		<div></div>
 	);
