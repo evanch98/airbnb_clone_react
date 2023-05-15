@@ -160,6 +160,13 @@ const RentModal = () => {
 		);
 	}
 
+	// Image step
+	if (step === STEPS.IMAGES) {
+		bodyContent = (
+			<div></div>
+		)
+	}
+
 	// Info step
 	if (step === STEPS.INFO) {
 		bodyContent = (
