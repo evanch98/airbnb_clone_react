@@ -7,10 +7,18 @@ import { TbPhotoPlus } from "react-icons/tb";
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let cloudinary: any
+  let cloudinary: any;
 }
 
-const ImageUpload = () => {
+interface ImageUploadProps {
+  onChange: (value: string) => void;
+  value: string;
+}
+
+const ImageUpload: React.FC<ImageUploadProps> = ({
+	onChange,
+	value
+}) => {
 	return ( 
 		<div></div>
 	);
