@@ -161,19 +161,6 @@ const RentModal = () => {
 		);
 	}
 
-	// Image step
-	if (step === STEPS.IMAGES) {
-		bodyContent = (
-			<div className="flex flex-col gap-8">
-				<Heading 
-					title="Add a photo your place"
-					subtitle="Show guests what your place looks like!"
-				/>
-				<ImageUpload />
-			</div>
-		);
-	}
-
 	// Info step
 	if (step === STEPS.INFO) {
 		bodyContent = (
@@ -202,6 +189,19 @@ const RentModal = () => {
 					value={bathroomCount}
 					onChange={(value) => setCustomValue("bathroomCount", value)}
 				/>
+			</div>
+		);
+	}
+
+	// Image step
+	if (step === STEPS.IMAGES) {
+		bodyContent = (
+			<div className="flex flex-col gap-8">
+				<Heading
+					title="Add a photo your place"
+					subtitle="Show guests what your place looks like!"
+				/>
+				<ImageUpload />
 			</div>
 		);
 	}
