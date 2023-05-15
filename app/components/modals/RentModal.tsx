@@ -55,6 +55,7 @@ const RentModal = () => {
 	// these are extracted from the useForm to watch and subscribe
 	const category = watch("category");
 	const location = watch("location");
+	const guestCount = watch("guestCount");
 
 	// import Map this way to be able to work with the leaflet package
 	// import Map dynamically
@@ -166,8 +167,10 @@ const RentModal = () => {
 					subtitle="What amenities do you have?"
 				/>
 				<Counter 
-					title="Number of guests"
-					subtitle="How many guests"
+					title="Guests"
+					subtitle="How many guests do you allow?"
+					value={guestCount}
+					onChange={(value) => setCustomValue("guestCount", value)}
 				/>
 			</div>
 		);
