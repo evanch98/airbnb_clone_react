@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 
 interface CounterProps {
   title: string;
@@ -15,6 +15,19 @@ const Counter: React.FC<CounterProps> = ({
 	value,
 	onChange
 }) => {
+
+	const onAdd = useCallback(() => {
+		onChange(value + 1);
+	}, [onChange, value]);
+
+	const onReduce = useCallback(() => {
+		if (value === 1) {
+			return;
+		}
+
+		onChange(value - 1);
+	}, [onChange, value])
+
 	return ( 
 		<div></div>
 	);
