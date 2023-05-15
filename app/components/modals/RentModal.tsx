@@ -167,6 +167,7 @@ const RentModal = () => {
 				/>
 				<Counter 
 					title="Number of guests"
+					subtitle="How many guests"
 				/>
 			</div>
 		);
