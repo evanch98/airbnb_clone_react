@@ -12,6 +12,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
 import dynamic from "next/dynamic";
 import Counter from "../inputs/Counter";
+import ImageUpload from "../inputs/ImageUpload";
 
 // steps of renting a home
 enum STEPS {
@@ -168,6 +169,7 @@ const RentModal = () => {
 					title="Add a photo your place"
 					subtitle="Show guests what your place looks like!"
 				/>
+				<ImageUpload />
 			</div>
 		);
 	}
