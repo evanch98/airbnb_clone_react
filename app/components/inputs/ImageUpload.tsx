@@ -33,6 +33,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
 		>
 			{({ open }) => {
 				return (
+					// the box to allow user to upload an image
 					<div
 						onClick={() => open?.()}
 						className="
@@ -52,7 +53,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
 							text-neutral-600
 						"
 					>
-						<TbPhotoPlus />
+						<TbPhotoPlus size={50} />
 					</div>
 				);
 			}}
