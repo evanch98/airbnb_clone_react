@@ -7,21 +7,21 @@ import Image from "next/image";
 import { TbPhotoPlus } from "react-icons/tb";
 
 declare global {
-  let cloudinary: any;
+	let cloudinary: any;
 }
 
 interface ImageUploadProps {
-  onChange: (value: string) => void;
-  value: string;
+	onChange: (value: string) => void;
+	value: string;
 }
 
-const ImageUpload: React.FC<ImageUploadProps> = ({
-	onChange,
-	value
-}) => {
-	const handleUpload = useCallback((result: any) => {
-		onChange(result.info.secure_url);
-	}, [onChange]);
+const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
+	const handleUpload = useCallback(
+		(result: any) => {
+			onChange(result.info.secure_url);
+		},
+		[onChange]
+	);
 
 	return (
 		<CldUploadWidget
@@ -70,6 +70,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
 			}}
 		</CldUploadWidget>
 	);
-}
+};
 
 export default ImageUpload;
