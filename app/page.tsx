@@ -3,6 +3,16 @@ import ClientOnly from "./components/navbar/ClientOnly";
 import Container from "./components/Container";
 
 export default function Home() {
+	const isEmpty = true;
+
+	if (isEmpty) {
+		return (
+			<ClientOnly>
+				<div></div>
+			</ClientOnly>
+		);
+	}
+
 	return (
 		<ClientOnly>
 			<Container>
