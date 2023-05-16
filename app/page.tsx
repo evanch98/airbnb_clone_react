@@ -1,6 +1,7 @@
 import React from "react";
 import ClientOnly from "./components/navbar/ClientOnly";
 import Container from "./components/Container";
+import EmptyState from "./components/EmptyState";
 
 export default function Home() {
 	const isEmpty = true;
@@ -8,7 +9,7 @@ export default function Home() {
 	if (isEmpty) {
 		return (
 			<ClientOnly>
-				<div></div>
+				<EmptyState />
 			</ClientOnly>
 		);
 	}
