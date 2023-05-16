@@ -1,5 +1,7 @@
+import React from "react"
+
 export default function Home() {
-  return (
-    <div>Hello Airbnb!</div>
-  )
+	return (
+		<div>Hello Airbnb!</div>
+	)
 }
