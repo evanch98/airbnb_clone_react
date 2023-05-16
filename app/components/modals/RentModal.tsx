@@ -59,6 +59,7 @@ const RentModal = () => {
 	const guestCount = watch("guestCount");
 	const roomCount = watch("roomCount");
 	const bathroomCount = watch("bathroomCount");
+	const imageSrc = watch("imageSrc");
 
 	// import Map this way to be able to work with the leaflet package
 	// import Map dynamically
@@ -201,7 +202,10 @@ const RentModal = () => {
 					title="Add a photo your place"
 					subtitle="Show guests what your place looks like!"
 				/>
-				<ImageUpload />
+				<ImageUpload
+					value={imageSrc}
+					onChange={(value) => setCustomValue("imageSrc", value)}
+				/>
 			</div>
 		);
 	}
