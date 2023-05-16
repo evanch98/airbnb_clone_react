@@ -7,12 +7,15 @@ import React, { useMemo, useState } from "react";
 import Heading from "../Heading";
 import { categories } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
-import { FieldValues, useForm } from "react-hook-form";
+import { FieldValues, SubmitErrorHandler, useForm } from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
 import dynamic from "next/dynamic";
 import Counter from "../inputs/Counter";
 import ImageUpload from "../inputs/ImageUpload";
 import Input from "../inputs/input";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 // steps of renting a home
 enum STEPS {
@@ -25,6 +28,9 @@ enum STEPS {
 }
 
 const RentModal = () => {
+	// router
+	const router = useRouter();
+
 	// hook
 	const rentModal = useRentModal();
 
@@ -89,6 +95,35 @@ const RentModal = () => {
 	// one step backward
 	const onNext = () => {
 		setStep((value) => value + 1);
+	};
+
+	const onSubmit: SubmitErrorHandler<FieldValues> = (data) => {
+		// if the step is not the last step, which is the price step, go to the next step
+		if (step !== STEPS.PRICE) {
+			return onNext();
+		}
+
+		setIsLoading(true);
+
+		axios.post("/api/listings", data)
+			.then(() => {
+				// if the user submit successfully, toast a message
+				// refresh the router
+				// reset the FieldValues
+				// reset the step to the category step
+				// close the rent modal
+				toast.success("Listing Created!");
+				router.refresh();
+				reset();
+				setStep(STEPS.CATEGORY);
+				rentModal.onClose();
+			})
+			.catch(() => {
+				toast.error("Something went wrong.");
+			})
+			.finally(() => {
+				setIsLoading(false);
+			})
 	};
 
 	// return the actionLabel string appropriately depending on the current step of the user
