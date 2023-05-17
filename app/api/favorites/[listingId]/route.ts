@@ -26,7 +26,7 @@ export async function POST(
 
 	favoriteIds.push(listingId);
 
-	const user = prisma.user.update({
+	const user = await prisma.user.update({
 		where: {
 			id: currentUser.id,
 		},
