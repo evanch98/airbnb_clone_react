@@ -2,18 +2,39 @@
 
 import React from "react";
 import { SafeUser } from "../types";
+import { AiOutlineHeart } from "react-icons/ai";
 
 interface HeartButtonProps {
   listingId: string;
-  currentUse?: SafeUser | null;
+  currentUser?: SafeUser | null;
 }
 
 const HeartButton: React.FC<HeartButtonProps> = ({
 	listingId,
-	currentUse,
+	currentUser,
 }) => {
+	const hasFavorited = false;
+	const toggleFavorite = () => {};
 	return ( 
-		<div></div>
+		<div
+			onClick={toggleFavorite}
+			className="
+        relative
+        hover:opacity-80
+        transition
+        cursor-pointer
+      "
+		>
+			<AiOutlineHeart 
+				size={28}
+				className="
+          fill-white
+          absolute
+          -top-[2px]
+          -right-[2px]
+        "
+			/>
+		</div>
 	);
 }
 
