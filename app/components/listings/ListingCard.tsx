@@ -3,6 +3,7 @@
 import useCountries from "@/app/hooks/useCountry";
 import { SafeUser } from "@/app/types";
 import { Listing, Reservation } from "@prisma/client";
+import { format } from "date-fns";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useMemo } from "react";
 
@@ -53,6 +54,17 @@ const ListingCard: React.FC<ListingCardProps> = ({
 
 		return data.price;
 	}, [reservation, data]);
+
+	const reservationDate = useMemo(() => {
+		if (!reservation) {
+			return null;
+		}
+
+		const start = new Date(reservation.startDate);  // start date
+		const end = new Date(reservation.endDate);  // end date
+
+		return `${format(start, "PP")} - ${format(end, "PP")}`
+	}, [reservation]);
 
 	return <div>Listing Card</div>;
 };
