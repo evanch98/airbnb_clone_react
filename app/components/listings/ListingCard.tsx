@@ -28,9 +28,12 @@ const ListingCard: React.FC<ListingCardProps> = ({
 	const router = useRouter();
 	const { getByValue } = useCountries();
 
+	// the location is stored as a value in the Listing object; therefore, 
+	// retrieve the location by using the getByValue from the  useCountries 
+	// hook
 	const location = getByValue(data.locationValue);
 
-  
+
 	return ( 
 		<div>Listing Card</div>
 	);
