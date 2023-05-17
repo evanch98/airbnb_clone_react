@@ -31,7 +31,11 @@ export default async function Home() {
           gap-8
         "
 				>
-					<div>My future listings</div>
+					{listings.map((listing: any) => {
+						return (
+							<div>{listing.title}</div>
+						);
+					})}
 				</div>
 			</Container>
 		</ClientOnly>
