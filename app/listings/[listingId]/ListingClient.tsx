@@ -1,3 +1,5 @@
+"use client";
+
 import Container from "@/app/components/Container";
 import ListingHead from "@/app/components/listings/ListingHead";
 import { categories } from "@/app/components/navbar/Categories";
