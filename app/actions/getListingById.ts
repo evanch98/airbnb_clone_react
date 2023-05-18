@@ -4,6 +4,7 @@ interface IParams {
   listingId?: string;
 }
 
+// retrieve the listing that matches the given id from the server
 export default async function getListingById(params: IParams) {
 	try {
 		const { listingId } = params;
