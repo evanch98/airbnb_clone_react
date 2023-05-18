@@ -8,6 +8,12 @@ import { SafeListing, SafeUser } from "@/app/types";
 import { Reservation } from "@prisma/client";
 import React, { useMemo } from "react";
 
+const initialDateRange = {
+	startDate: new Date(),
+	endDate: new Date(),
+	key: "selection",
+};
+
 interface ListingClientProps {
   reservation?: Reservation[];
   listing: SafeListing & {
