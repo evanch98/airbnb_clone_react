@@ -6,6 +6,11 @@ import React from "react";
 import { IconType } from "react-icons";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
+import dynamic from "next/dynamic";
+
+const Map = dynamic(() => import("../Map"), {
+	ssr: false
+});
 
 interface ListingInfoProps {
 	user: SafeUser;
@@ -48,7 +53,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
           "
 				>
 					<div>Hosted by {user?.name}</div>
-					<Avatar src={user?.image}/>
+					<Avatar src={user?.image} />
 				</div>
 				<div
 					className="
@@ -67,12 +72,16 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
 			</div>
 			<hr />
 			{category && (
-				<ListingCategory 
+				<ListingCategory
 					icon={category.icon}
 					label={category.label}
 					description={category.description}
 				/>
 			)}
+			<hr />
+			<div className="text-lg font-light text-neutral-500">{description}</div>
+			<hr />
+			<Map center={coordinates || [51, -0.09]} />
 		</div>
 	);
 };
