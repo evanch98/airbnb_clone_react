@@ -5,6 +5,7 @@ import { SafeUser } from "@/app/types";
 import React from "react";
 import { IconType } from "react-icons";
 import Avatar from "../Avatar";
+import ListingCategory from "./ListingCategory";
 
 interface ListingInfoProps {
 	user: SafeUser;
