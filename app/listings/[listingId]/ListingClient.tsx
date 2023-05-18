@@ -20,11 +20,11 @@ const initialDateRange = {
 };
 
 interface ListingClientProps {
-  reservations?: Reservation[];
-  listing: SafeListing & {
-    user: SafeUser
-  };
-  currentUser?: SafeUser | null;
+	reservations?: Reservation[];
+	listing: SafeListing & {
+		user: SafeUser;
+	};
+	currentUser?: SafeUser | null;
 }
 
 const ListingClient: React.FC<ListingClientProps> = ({
@@ -34,7 +34,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
 }) => {
 	const loginModal = useLoginModal();
 	const router = useRouter();
-	
+
 	// if the date is already taken, this will disable the date
 	const disabledDates = useMemo(() => {
 		let dates: Date[] = [];
@@ -62,12 +62,13 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
 		setIsLoading(true);
 
-		axios.post("/api/reservations", {
-			totalPrice,
-			startDate: dateRange.startDate,
-			endDate: dateRange.endDate,
-			listingId: listing?.id,
-		})
+		axios
+			.post("/api/reservations", {
+				totalPrice,
+				startDate: dateRange.startDate,
+				endDate: dateRange.endDate,
+				listingId: listing?.id,
+			})
 			.then(() => {
 				toast.success("Listing reserved!");
 				setDateRange(initialDateRange);
@@ -80,17 +81,25 @@ const ListingClient: React.FC<ListingClientProps> = ({
 			.finally(() => {
 				setIsLoading(false);
 			});
-	}, [currentUser, loginModal, totalPrice, listing?.id, dateRange, initialDateRange, router]);
+	}, [
+		currentUser,
+		loginModal,
+		totalPrice,
+		listing?.id,
+		dateRange,
+		initialDateRange,
+		router,
+	]);
 
 	const category = useMemo(() => {
 		return categories.find((item) => item.label === listing.category);
 	}, [listing.category]);
 
-	return ( 
+	return (
 		<Container>
 			<div className="max-w-screen-lg mx-auto">
 				<div className="flex flex-col gap-6">
-					<ListingHead 
+					<ListingHead
 						title={listing.title}
 						imageSrc={listing.imageSrc}
 						locationValue={listing.locationValue}
@@ -106,7 +115,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
               mt-6
             "
 					>
-						<ListingInfo 
+						<ListingInfo
 							user={listing.user}
 							category={category}
 							description={listing.description}
@@ -120,6 +129,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
 			</div>
 		</Container>
 	);
-}
+};
 
 export default ListingClient;
