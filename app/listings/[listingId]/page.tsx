@@ -1,10 +1,16 @@
-"use client";
-
+import getListingById from "@/app/actions/getListingById";
 import React from "react";
 
-const ListingPage = () => {
+interface IParams {
+  listingId?: string;
+}
+
+const ListingPage = async ({ params }: { params: IParams }) => {
+
+	const listing = await getListingById(params);
+
 	return ( 
-		<div>My individual listing page!</div>
+		<div>{listing?.title}</div>
 	);
 }
 
