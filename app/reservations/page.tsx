@@ -3,6 +3,7 @@ import ClientOnly from "../components/navbar/ClientOnly";
 import getCurrentUser from "../actions/getCurrentUser";
 import getReservations from "../actions/getReservations";
 import React from "react";
+import ReservationClient from "./ReservationClient";
 
 const ReservationPage = async () => {
 	const currentUser = await getCurrentUser();
