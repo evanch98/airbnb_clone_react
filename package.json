@@ -20,7 +20,7 @@
     "date-fns": "^2.30.0",
     "eslint-config-next": "13.4.1",
     "leaflet": "^1.9.3",
-    "next": "13.4.1",
+    "next": "13.2.1",
     "next-auth": "^4.22.1",
     "next-cloudinary": "^4.10.0",
     "query-string": "^8.1.0",
