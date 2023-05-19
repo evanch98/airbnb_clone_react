@@ -108,6 +108,7 @@ const SearchModal = () => {
 		return "Back;"
 	}, [step]);
 
+	// location step
 	const bodyContent = (
 		<div className="flex flex-col gap-8">
 			<Heading 
