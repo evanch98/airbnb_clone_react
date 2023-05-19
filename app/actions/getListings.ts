@@ -4,10 +4,20 @@ export interface IListingParams {
 	userId?: string;
 }
 
-export default async function getListings() {
+export default async function getListings(
+	params: IListingParams,
+) {
 	try {
+		const { userId } = params;
+
+		const query: any = {};
+
+		if (userId) {
+			query.userId = userId;
+		}
 		// retrieve listings from the server
 		const listings = await prisma.listing.findMany({
+			where: query,
 			orderBy: {
 				createdAt: "desc"
 			}
