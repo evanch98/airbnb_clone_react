@@ -3,6 +3,7 @@ import getListings from "../actions/getListings";
 import EmptyState from "../components/EmptyState";
 import ClientOnly from "../components/navbar/ClientOnly";
 import React from "react";
+import PropertiesClient from "./PropertiesClient";
 
 const PropertiesPage = async () => {
 	const currentUser = await getCurrentUser();
