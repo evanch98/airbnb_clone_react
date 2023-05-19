@@ -1,5 +1,9 @@
 import prisma from "@/app/libs/prismadb";
 
+export interface IListingParams {
+	userId?: string;
+}
+
 export default async function getListings() {
 	try {
 		// retrieve listings from the server
