@@ -92,6 +92,14 @@ const SearchModal = () => {
 		params
 	]);
 
+	const actionLabel = useMemo(() => {
+		if (step === STEPS.INFO) {
+			return "Search";
+		}
+
+		return "Next";
+	}, [step]);
+
 	return ( 
 		<Modal
 			isOpen={searchModal.isOpen}
