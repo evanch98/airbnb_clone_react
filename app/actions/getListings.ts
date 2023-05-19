@@ -1,5 +1,7 @@
 import prisma from "@/app/libs/prismadb";
 
+export const dynamic = "force-dynamic";
+
 export interface IListingParams {
 	userId?: string;
 	guestCount?: number;
