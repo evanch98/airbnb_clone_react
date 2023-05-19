@@ -2,6 +2,9 @@
 Start Date: 8<sup>th</sup> May 2023<br>
 An Airbnb clone web application.
 
+>**Warning**<br>
+Please do not use your actual email address when you test the demo website.
+
 # Goals
 - To showcase my knowledge of React, TypeScript, NextJs, and Tailwind CSS
 - To build an Airbnb clone website
