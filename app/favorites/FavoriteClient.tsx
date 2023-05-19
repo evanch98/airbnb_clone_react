@@ -1,10 +1,26 @@
 "use client";
 
 import React from "react";
+import { SafeListing, SafeUser } from "../types";
+import Container from "../components/Container";
+import Heading from "../components/Heading";
 
-const FavoriteClient = () => {
+interface FavoriteClientProps {
+  listings: SafeListing[];
+  currentUser?: SafeUser | null;
+}
+
+const FavoriteClient: React.FC<FavoriteClientProps> = ({
+	listings,
+	currentUser,
+}) => {
 	return ( 
-		<div>My favorites</div>
+		<Container>
+			<Heading 
+				title="Favorites"
+				subtitle="List of places you have favorited!"
+			/>
+		</Container>
 	);
 }
 
