@@ -1,10 +1,30 @@
 "use client";
 
-import React from "react";
+import React, { useCallback, useState } from "react";
+import { toast } from "react-hot-toast";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { SafeReservation, SafeUser } from "../types";
+import Heading from "../components/Heading";
+import Container from "../components/Container";
+import ListingCard from "../components/listings/ListingCard";
 
-const ReservationClient = () => {
+interface ReservationClientProps {
+  reservations: SafeReservation[];
+  currentUser?: SafeUser;
+}
+
+const ReservationClient: React.FC<ReservationClientProps> = ({
+	reservations,
+	currentUser,
+}) => {
 	return ( 
-		<div>My reservations</div>
+		<Container>
+			<Heading 
+				title="Reservations"
+				subtitle="Bookings on your properties"
+			/>
+		</Container>
 	);
 }
 
