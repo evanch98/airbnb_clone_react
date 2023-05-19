@@ -1,8 +1,17 @@
 "use client";
 
 import React from "react";
+import { SafeListing, SafeUser } from "../types";
 
-const PropertiesClient = () => {
+interface PropertiesClientProps {
+  listings: SafeListing[];
+  currentUser?: SafeUser | null;
+}
+
+const PropertiesClient: React.FC<PropertiesClientProps> = ({
+	listings,
+	currentUser,
+}) => {
 	return ( 
 		<div></div>
 	);
