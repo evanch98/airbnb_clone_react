@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import React from "react";
 import ClientOnly from "./components/navbar/ClientOnly";
 import Container from "./components/Container";
@@ -5,8 +7,6 @@ import EmptyState from "./components/EmptyState";
 import getListings, { IListingParams } from "./actions/getListings";
 import ListingCard from "./components/listings/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
-
-export const dynamic = "force-dynamic";
 
 interface HomeProps {
 	searchParams: IListingParams;
@@ -42,7 +42,7 @@ const Home = async ({ searchParams }: HomeProps) => {
 				>
 					{listings.map((listing) => {
 						return (
-							<ListingCard 
+							<ListingCard
 								currentUser={currentUser}
 								key={listing.id}
 								data={listing}
@@ -53,6 +53,6 @@ const Home = async ({ searchParams }: HomeProps) => {
 			</Container>
 		</ClientOnly>
 	);
-}
+};
 
 export default Home;
