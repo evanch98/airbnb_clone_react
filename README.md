@@ -6,10 +6,14 @@ An Airbnb clone web application.
 - To showcase my knowledge of React, TypeScript, NextJs, and Tailwind CSS
 - To build an Airbnb clone website
 - To utilize Clean Architecture
+- To leverage the power of Next.js 13 App Router in the web application
 
 # Key Features
 - Core Airbnb features
 - Email Login, GitHub Login, and Google Login
+- MongoDB for data persistence
+- NextAuth authentication
+- Next.js 13 App Router
 
 # Technologies used in this project
 <div>
