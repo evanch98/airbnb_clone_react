@@ -15,36 +15,37 @@ interface PropertiesClientProps {
 }
 
 const PropertiesClient: React.FC<PropertiesClientProps> = ({
-	listings,
-	currentUser,
+  listings,
+  currentUser,
 }) => {
-	const router = useRouter();
-	const [deletingId, setDeletingId] = useState("");
+  const router = useRouter();
+  const [deletingId, setDeletingId] = useState("");
 
-	const onCancel = useCallback((id: string) => {
-		setDeletingId(id);
+  const onCancel = useCallback(
+    (id: string) => {
+      setDeletingId(id);
 
-		axios.delete(`/api/listings/${id}`)
-			.then(() => {
-				toast.success("Listing deleted");
-				router.refresh();
-			})
-			.catch((error) => {
-				toast.error(error?.response?.date?.error);
-			})
-			.finally(() => {
-				setDeletingId("");
-			});
-	}, [deletingId, router])
+      axios
+        .delete(`/api/listings/${id}`)
+        .then(() => {
+          toast.success("Listing deleted");
+          router.refresh();
+        })
+        .catch((error) => {
+          toast.error(error?.response?.date?.error);
+        })
+        .finally(() => {
+          setDeletingId("");
+        });
+    },
+    [deletingId, router]
+  );
 
-	return ( 
-		<Container>
-			<Heading
-				title="Properties"
-				subtitle="List of your properties"
-			/>
-			<div
-				className="
+  return (
+    <Container>
+      <Heading title="Properties" subtitle="List of your properties" />
+      <div
+        className="
           mt-10
           grid
           grid-cols-1
@@ -55,21 +56,21 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
           2xl:grid-cols-6
           gap-8
         "
-			>
-				{listings.map((listing) => (
-					<ListingCard
-						key={listing.id}
-						data={listing}
-						actionId={listing.id}
-						onAction={onCancel}
-						disabled={deletingId === listing.id}
-						actionLabel="Delete property"
-						currentUser={currentUser}
-					/>
-				))}
-			</div>
-		</Container>
-	);
-}
+      >
+        {listings.map((listing) => (
+          <ListingCard
+            key={listing.id}
+            data={listing}
+            actionId={listing.id}
+            onAction={onCancel}
+            disabled={deletingId === listing.id}
+            actionLabel="Delete property"
+            currentUser={currentUser}
+          />
+        ))}
+      </div>
+    </Container>
+  );
+};
 
 export default PropertiesClient;
