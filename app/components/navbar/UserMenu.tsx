@@ -12,39 +12,39 @@ import useRentModal from "@/app/hooks/useRentModal";
 import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
-	currentUser?: SafeUser | null;
+  currentUser?: SafeUser | null;
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
-	// hooks
-	const registerModal = useRegisterModal();
-	const loginModal = useLoginModal();
-	const rentModal = useRentModal();
-	const router = useRouter();
+  // hooks
+  const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
+  const rentModal = useRentModal();
+  const router = useRouter();
 
-	const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-	// reverse the current value of isOpen
-	const toggleOpen = useCallback(() => {
-		setIsOpen((value) => !value);
-	}, []);
+  // reverse the current value of isOpen
+  const toggleOpen = useCallback(() => {
+    setIsOpen((value) => !value);
+  }, []);
 
-	const onRent = useCallback(() => {
-		// if the current user is null, ask the user to log in
-		if (!currentUser) {
-			return loginModal.onOpen();
-		}
+  const onRent = useCallback(() => {
+    // if the current user is null, ask the user to log in
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
 
-		// open Rent Modal
-		rentModal.onOpen();
-	}, [currentUser, loginModal, rentModal]);
+    // open Rent Modal
+    rentModal.onOpen();
+  }, [currentUser, loginModal, rentModal]);
 
-	return (
-		<div className="relative">
-			<div className="flex flex-row items-center gap-3">
-				<div
-					onClick={onRent}
-					className="
+  return (
+    <div className="relative">
+      <div className="flex flex-row items-center gap-3">
+        <div
+          onClick={onRent}
+          className="
             hidden
             md:block
             text-sm
@@ -56,12 +56,12 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             transition
             cursor-pointer
           "
-				>
-					Airbnb your home
-				</div>
-				<div
-					onClick={toggleOpen}
-					className="
+        >
+          Airbnb your home
+        </div>
+        <div
+          onClick={toggleOpen}
+          className="
           p-4
           md:py-1
           md:px-2
@@ -76,17 +76,17 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           hover:shadow-md
           transition
           "
-				>
-					<AiOutlineMenu />
-					<div className="hidden md:block">
-						<Avatar src={currentUser?.image} />
-					</div>
-				</div>
-			</div>
-			{isOpen && (
-				// menu
-				<div
-					className="
+        >
+          <AiOutlineMenu />
+          <div className="hidden md:block">
+            <Avatar src={currentUser?.image} />
+          </div>
+        </div>
+      </div>
+      {isOpen && (
+        // menu
+        <div
+          className="
             absolute
             rounded-xl
             shadow-md
@@ -98,31 +98,43 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             top-12
             text-sm
           "
-				>
-					<div className="flex flex-col cursor-pointer">
-						{currentUser ? (
-							// if the user has logged in
-							<>
-								<MenuItem onClick={() => router.push("/trips")} label="My trips" />
-								<MenuItem onClick={() => router.push("/favorites")} label="My favorites" />
-								<MenuItem onClick={() => router.push("/reservations")} label="My reservations" />
-								<MenuItem onClick={() => router.push("/properties")} label="My properties" />
-								<MenuItem onClick={rentModal.onOpen} label="Airbnb my home" />
-								<hr />
-								<MenuItem onClick={() => signOut()} label="Logout" />
-							</>
-						) : (
-							// if the user has not logged in
-							<>
-								<MenuItem onClick={loginModal.onOpen} label="Login" />
-								<MenuItem onClick={registerModal.onOpen} label="Sign up" />
-							</>
-						)}
-					</div>
-				</div>
-			)}
-		</div>
-	);
+        >
+          <div className="flex flex-col cursor-pointer">
+            {currentUser ? (
+              // if the user has logged in
+              <>
+                <MenuItem
+                  onClick={() => router.push("/trips")}
+                  label="My trips"
+                />
+                <MenuItem
+                  onClick={() => router.push("/favorites")}
+                  label="My favorites"
+                />
+                <MenuItem
+                  onClick={() => router.push("/reservations")}
+                  label="My reservations"
+                />
+                <MenuItem
+                  onClick={() => router.push("/properties")}
+                  label="My properties"
+                />
+                <MenuItem onClick={rentModal.onOpen} label="Airbnb my home" />
+                <hr />
+                <MenuItem onClick={() => signOut()} label="Logout" />
+              </>
+            ) : (
+              // if the user has not logged in
+              <>
+                <MenuItem onClick={loginModal.onOpen} label="Login" />
+                <MenuItem onClick={registerModal.onOpen} label="Sign up" />
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default UserMenu;
