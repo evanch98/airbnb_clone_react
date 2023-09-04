@@ -13,29 +13,29 @@ import SearchModal from "./components/modals/SearchModal";
 const font = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
-	title: "Airbnb",
-	description: "Airbnb clone",
+  title: "Airbnb",
+  description: "Airbnb clone",
 };
 
 export default async function RootLayout({
-	children,
+  children,
 }: {
   children: React.ReactNode;
 }) {
-	const currentUser = await getCurrentUser();
-	return (
-		<html lang="en">
-			<body className={font.className} suppressHydrationWarning={true}>
-				<ClientOnly>
-					<ToasterProvider />
-					<RegisterModal />
-					<LoginModal />
-					<RentModal />
-					<SearchModal />
-					<Navbar currentUser={currentUser} />
-				</ClientOnly>
-				<div className="pb-20 pt-28">{children}</div>
-			</body>
-		</html>
-	);
+  const currentUser = await getCurrentUser();
+  return (
+    <html lang="en">
+      <body className={font.className} suppressHydrationWarning={true}>
+        <ClientOnly>
+          <ToasterProvider />
+          <RegisterModal />
+          <LoginModal />
+          <RentModal />
+          <SearchModal />
+          <Navbar currentUser={currentUser} />
+        </ClientOnly>
+        <div className="pb-20 pt-28">{children}</div>
+      </body>
+    </html>
+  );
 }
