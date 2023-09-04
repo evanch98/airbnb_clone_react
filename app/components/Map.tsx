@@ -14,36 +14,32 @@ import markerShadow from "leaflet/dist/images/marker-shadow.png";
 // configuration to be able to use leaflet since it is not fully supported by React
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
-	iconUrl: markerIcon.src,
-	iconRetinaUrl: markerIcon2x.src,
-	shadowUrl: markerShadow.src,
+  iconUrl: markerIcon.src,
+  iconRetinaUrl: markerIcon2x.src,
+  shadowUrl: markerShadow.src,
 });
 
 interface MapProps {
-	center?: number[];
+  center?: number[];
 }
 
 const Map: React.FC<MapProps> = ({
-	center, // for the latitude and longitude
+  center, // for the latitude and longitude
 }) => {
-	return (
-		<MapContainer
-			center={(center as L.LatLngExpression) || [51, -0.09]}
-			zoom={center ? 4 : 2}
-			scrollWheelZoom={false}
-			className="h-[35vh] rounded-lg"
-		>
-			<TileLayer
-				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-			/>
-			{center && (
-				<Marker 
-					position={center as L.LatLngExpression}
-				/>
-			)}
-		</MapContainer>
-	);
+  return (
+    <MapContainer
+      center={(center as L.LatLngExpression) || [51, -0.09]}
+      zoom={center ? 4 : 2}
+      scrollWheelZoom={false}
+      className="h-[35vh] rounded-lg"
+    >
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      {center && <Marker position={center as L.LatLngExpression} />}
+    </MapContainer>
+  );
 };
 
 export default Map;
