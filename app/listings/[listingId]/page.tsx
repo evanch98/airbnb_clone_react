@@ -11,29 +11,28 @@ interface IParams {
 }
 
 const ListingPage = async ({ params }: { params: IParams }) => {
+  const listing = await getListingById(params);
+  const reservations = await getReservations(params);
+  const currentUser = await getCurrentUser();
 
-	const listing = await getListingById(params);
-	const reservations = await getReservations(params);
-	const currentUser = await getCurrentUser();
+  // if the listing is null, return the EmptyState component
+  if (!listing) {
+    return (
+      <ClientOnly>
+        <EmptyState />
+      </ClientOnly>
+    );
+  }
 
-	// if the listing is null, return the EmptyState component
-	if (!listing) {
-		return (
-			<ClientOnly>
-				<EmptyState />
-			</ClientOnly>
-		);
-	}
-
-	return ( 
-		<ClientOnly>
-			<ListingClient 
-				listing={listing}
-				reservations={reservations}
-				currentUser={currentUser}
-			/>
-		</ClientOnly>
-	);
-}
+  return (
+    <ClientOnly>
+      <ListingClient
+        listing={listing}
+        reservations={reservations}
+        currentUser={currentUser}
+      />
+    </ClientOnly>
+  );
+};
 
 export default ListingPage;
