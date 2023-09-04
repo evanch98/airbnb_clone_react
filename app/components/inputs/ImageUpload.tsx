@@ -7,36 +7,36 @@ import Image from "next/image";
 import { TbPhotoPlus } from "react-icons/tb";
 
 declare global {
-	let cloudinary: any;
+  let cloudinary: any;
 }
 
 interface ImageUploadProps {
-	onChange: (value: string) => void;
-	value: string;
+  onChange: (value: string) => void;
+  value: string;
 }
 
 const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
-	const handleUpload = useCallback(
-		(result: any) => {
-			onChange(result.info.secure_url);
-		},
-		[onChange]
-	);
+  const handleUpload = useCallback(
+    (result: any) => {
+      onChange(result.info.secure_url);
+    },
+    [onChange]
+  );
 
-	return (
-		<CldUploadWidget
-			onUpload={handleUpload}
-			uploadPreset="ldeqakfu"
-			options={{
-				maxFiles: 1,
-			}}
-		>
-			{({ open }) => {
-				return (
-					// the box to allow user to upload an image
-					<div
-						onClick={() => open?.()}
-						className="
+  return (
+    <CldUploadWidget
+      onUpload={handleUpload}
+      uploadPreset="ldeqakfu"
+      options={{
+        maxFiles: 1,
+      }}
+    >
+      {({ open }) => {
+        return (
+          // the box to allow user to upload an image
+          <div
+            onClick={() => open?.()}
+            className="
 							relative
 							cursor-pointer
 							hover:opacity-70
@@ -52,24 +52,24 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
 							gap-4
 							text-neutral-600
 						"
-					>
-						<TbPhotoPlus size={50} />
-						<div className="font-semibold text-lg">Click to upload</div>
-						{value && (
-							<div className="absolute inset-0 w-full h-full">
-								<Image
-									alt="Upload"
-									fill
-									style={{ objectFit: "cover" }}
-									src={value}
-								/>
-							</div>
-						)}
-					</div>
-				);
-			}}
-		</CldUploadWidget>
-	);
+          >
+            <TbPhotoPlus size={50} />
+            <div className="font-semibold text-lg">Click to upload</div>
+            {value && (
+              <div className="absolute inset-0 w-full h-full">
+                <Image
+                  alt="Upload"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  src={value}
+                />
+              </div>
+            )}
+          </div>
+        );
+      }}
+    </CldUploadWidget>
+  );
 };
 
 export default ImageUpload;
