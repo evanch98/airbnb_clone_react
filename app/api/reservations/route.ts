@@ -2,43 +2,36 @@ import { NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 
-export async function POST(
-	request: Request
-) {
-	const currentUser = await getCurrentUser();
+export async function POST(request: Request) {
+  const currentUser = await getCurrentUser();
 
-	if (!currentUser) {
-		return NextResponse.error();
-	}
+  if (!currentUser) {
+    return NextResponse.error();
+  }
 
-	const body = await request.json();
+  const body = await request.json();
 
-	const {
-		listingId,
-		startDate,
-		endDate,
-		totalPrice
-	} = body;
+  const { listingId, startDate, endDate, totalPrice } = body;
 
-	if (!listingId || !startDate || !endDate || !totalPrice) {
-		return NextResponse.error();
-	}
+  if (!listingId || !startDate || !endDate || !totalPrice) {
+    return NextResponse.error();
+  }
 
-	const listingAndReservation = await prisma.listing.update({
-		where: {
-			id: listingId
-		},
-		data: {
-			reservations: {
-				create: {
-					UserId: currentUser.id,
-					startDate,
-					endDate,
-					totalPrice,
-				}
-			}
-		}
-	});
+  const listingAndReservation = await prisma.listing.update({
+    where: {
+      id: listingId,
+    },
+    data: {
+      reservations: {
+        create: {
+          UserId: currentUser.id,
+          startDate,
+          endDate,
+          totalPrice,
+        },
+      },
+    },
+  });
 
-	return NextResponse.json(listingAndReservation);
+  return NextResponse.json(listingAndReservation);
 }
